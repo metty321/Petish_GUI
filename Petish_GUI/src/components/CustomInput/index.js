@@ -10,7 +10,7 @@ import {
 
  const CustomInput = (props) => {
    var width = Dimensions.get('window').width;
-  const [value,setValue] =  useState('');
+  // const [value,setValue] =  useState('');
    return (
      
      
@@ -20,7 +20,9 @@ import {
      <TextInput 
      placeholder={props.placeholder} 
      style={styles.input}
-     onChangeText={props.setValue}/>
+     value ={props.value}
+     onChangeText={props.setValue}
+     secureTextEntry={props.secureTextEntry}/>
      </View>
      
    );

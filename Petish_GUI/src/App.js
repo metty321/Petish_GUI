@@ -1,15 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
+import Splash from './pages/Splash';
 import React from 'react';
-import Home from './pages/Home';
-import Register from './pages/Register';
-import Login from './pages/Login';
+import Router from './Routes';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 import {
   ScrollView,
@@ -29,18 +23,18 @@ const App = () => {
    
     return (
     <View style={styles.root}>
-      <Register />
-      {/* <Login/> */}
-      {/* <Home/> */}
+    <NavigationContainer>
+      <Router/>
+    </NavigationContainer>
     </View>
+    
     );
 };
 
 const styles = StyleSheet.create({
   root:{
     flex:1
-  },
-});
-
+  }
+})
 
 export default App;

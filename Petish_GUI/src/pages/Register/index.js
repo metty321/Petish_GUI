@@ -1,5 +1,6 @@
  import React,{useState} from 'react';
  import CustomInput from '../../components/CustomInput';
+ import axios, { Axios } from 'axios';
  import {
     StyleSheet,
     Text,
@@ -11,7 +12,19 @@
 
   //buat fungsi buat mengolah input dan mengirimkannya ke database
   const onRegisterPressed =() =>{
-    console.warn('Sign Up');
+    const data = {
+      userName,
+      email,
+      password
+    }
+
+    Axios.post('https://localhost:3000/register',data)
+    .then(res => {
+      console.log('res: ',res);
+      setUsername("");
+      setEmail("");
+      setPassword("");
+    })
 
   };
 
@@ -19,7 +32,6 @@
     
     const [userName, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [phonenumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     return (
       
@@ -28,10 +40,24 @@
       <Text style={styles.text}>Register</Text>
       </View>
       <View style={styles.registerForm}>
-     <CustomInput label='Username' placeholder='Your Username' setValue={setUsername}/>
-     <CustomInput label='Email' placeholder='Your Email' setValue={setEmail}/>
-     {/* <CustomInput label='Phone Number' placeholder='Your Phone Number' setValue={setPhoneNumber}/> */}
-     <CustomInput label='Password' placeholder='Your Password' setValue={setPassword}/>
+     <CustomInput label='Username' 
+     placeholder='Your Username' 
+     value={userName} 
+     setValue={setUsername}/>
+
+     <CustomInput label='Email' 
+     placeholder='Your Email' 
+     value={email} 
+     setValue={setEmail}
+     />
+
+     <CustomInput 
+     label='Password' 
+     placeholder='Your Password' 
+     value={password} 
+     setValue={setPassword}
+     secureTextEntry
+     />
      
      <Pressable  onPress={onRegisterPressed} style={styles.Register_btn}>
      <TouchableOpacity>

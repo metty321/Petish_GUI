@@ -11,14 +11,19 @@ import {
    TouchableOpacity
  } from 'react-native';
 
- const Home =() => {
+ 
+
+ const Home =(navigation) => {
+    //const [user, setUser] = useState([]);
     const {width,height} = useWindowDimensions();
     return(
     <View style={styles.root}>  
         <Image source={Logo} style={[styles.Logo,{height : height * 0.5}]} resizeMode="contain"/>
         <Text style={styles.title}>PETISH</Text>
         <Text style={styles.subtitle}>Pet Healthiest</Text>
-        <Pressable  style={[styles.continue_btn,{width : width * 0.6}]}>
+        <Pressable  
+        style={[styles.continue_btn,{width : width * 0.6}]}
+        onPress={()=>navigation.navigate('Main')}>
     <TouchableOpacity>
      <Text style={styles.btn_label}>Continue</Text>
      </TouchableOpacity>
