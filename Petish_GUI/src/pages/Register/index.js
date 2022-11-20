@@ -11,14 +11,14 @@
 
 
   //buat fungsi buat mengolah input dan mengirimkannya ke database
-  const onRegisterPressed =() =>{
+  const onRegisterPressed = async () =>{
     const data = {
       userName,
       email,
       password
     }
 
-    Axios.post('https://localhost:3000/register',data)
+    await Axios.post('https://localhost:8888/petish/register',{data})
     .then(res => {
       console.log('res: ',res);
       setUsername("");
