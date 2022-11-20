@@ -24,8 +24,15 @@
       setUsername("");
       setEmail("");
       setPassword("");
+      if(!res.success){
+        alert(res.message);
+      }
+      else{
+        //navigate atau arahin ke halaman varif email dengna token
+        //trus kirim {profile: res.user}
+      }
     })
-
+    
   };
 
   const Register = () => {
