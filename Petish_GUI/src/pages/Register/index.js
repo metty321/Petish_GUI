@@ -11,22 +11,28 @@
 
 
   //buat fungsi buat mengolah input dan mengirimkannya ke database
-  const onRegisterPressed =() =>{
+  const onRegisterPressed = async () =>{
     const data = {
       userName,
       email,
       password
     }
 
-    navigation.navigate('Register')
-    // Axios.post('https://localhost:8888/Petish/register',data)
-    // .then(res => {
-    //   console.log('res: ',res);
-    //   setUsername("");
-    //   setEmail("");
-    //   setPassword("");
-    // })
-
+    await Axios.post('https://localhost:8888/petish/register',{data})
+    .then(res => {
+      console.log('res: ',res);
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      if(!res.success){
+        alert(res.message);
+      }
+      else{
+        //navigate atau arahin ke halaman varif email dengna token
+        //trus kirim {profile: res.user}
+      }
+    })
+    
   };
 
   const Register = ({ navigation }) => {
