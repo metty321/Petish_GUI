@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 
-
+import Home from './pages/Home'
 
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
     <NavigationContainer>
       <Router/>
     </NavigationContainer>
+    
     </View>
     
     );

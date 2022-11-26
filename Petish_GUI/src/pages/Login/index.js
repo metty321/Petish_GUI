@@ -10,12 +10,13 @@ import {
 
 
  //buat fungsi buat mengolah input dan mengirimkannya ke database
- const onRegisterPressed =() =>{
+ const onLoginPressed =() =>{
    console.warn('Sign Up');
 
  };
 
- const Login = () => {
+
+ const Login = ({ navigation }) => {
    
 
    const [email, setEmail] = useState('');
@@ -32,12 +33,14 @@ import {
     {/* <CustomInput label='Phone Number' placeholder='Your Phone Number' setValue={setPhoneNumber}/> */}
     <CustomInput label='Password' placeholder='Your Password' setValue={setPassword}/>
     
-    <Pressable  onPress={onRegisterPressed} style={styles.Register_btn}>
+    <Pressable  onPress={()=>navigation.navigate('MainApp')} style={styles.Register_btn}>
     <TouchableOpacity>
      <Text style={styles.btn_label}>Submit</Text>
      </TouchableOpacity>
     </Pressable>
+    <Pressable onPress={()=>navigation.navigate('Register')}>
     <Text style={styles.link_to_register}>Don't have an account?</Text>
+    </Pressable>
     </View>
      </View>
    );

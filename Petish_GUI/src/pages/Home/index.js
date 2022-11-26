@@ -13,7 +13,7 @@ import {
 
  
 
- const Home =(navigation) => {
+ const Home =({ navigation }) => {
     //const [user, setUser] = useState([]);
     const {width,height} = useWindowDimensions();
     return(
@@ -23,7 +23,7 @@ import {
         <Text style={styles.subtitle}>Pet Healthiest</Text>
         <Pressable  
         style={[styles.continue_btn,{width : width * 0.6}]}
-        onPress={()=>navigation.navigate('Main')}>
+        onPress={()=>navigation.navigate('Login')}>
     <TouchableOpacity>
      <Text style={styles.btn_label}>Continue</Text>
      </TouchableOpacity>

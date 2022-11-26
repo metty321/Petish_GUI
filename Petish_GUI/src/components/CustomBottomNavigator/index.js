@@ -1,10 +1,12 @@
 import react from "react";
-import { StyleSheet, Text, View, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground} from 'react-native'
+import TabItem from "../TabItem";
 
 
 const CustomBottomNavigator = ({ state, descriptors, navigation }) => {
     return (
         <View style={styles.container}>
+          {/* <ImageBackground source={require('../../../assets/img/bottomNavigationBackground.png')} */}
           {state.routes.map((route, index) => {
             const { options } = descriptors[route.key];
             const label =
@@ -37,19 +39,13 @@ const CustomBottomNavigator = ({ state, descriptors, navigation }) => {
             };
     
             return (
-              <TouchableOpacity
-                accessibilityRole="button"
-                accessibilityState={isFocused ? { selected: true } : {}}
-                accessibilityLabel={options.tabBarAccessibilityLabel}
-                testID={options.tabBarTestID}
-                onPress={onPress}
-                onLongPress={onLongPress}
-                style={{ flex: 1 }}
-              >
-                <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-                  {label}
-                </Text>
-              </TouchableOpacity>
+              <TabItem
+              key={index}
+              isFocused={isFocused}
+              label={label}
+              onPress={onPress}
+              onLongPress={onLongPress}
+              />
             );
           })}
         </View>
@@ -62,8 +58,12 @@ export default CustomBottomNavigator;
 const styles = StyleSheet.create({
     container :{
         flexDirection:'row',
+        paddingHorizontal:10,
+        paddingVertical:5,
         justifyContent:'space-between',
-        paddingHorizontal:20,
-        paddingVertical:19
+        backgroundColor:'rgba(145,111,94,255)',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20
+      
     }
 });

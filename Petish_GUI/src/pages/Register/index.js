@@ -18,21 +18,23 @@
       password
     }
 
-    Axios.post('https://localhost:3000/register',data)
-    .then(res => {
-      console.log('res: ',res);
-      setUsername("");
-      setEmail("");
-      setPassword("");
-    })
+    navigation.navigate('Register')
+    // Axios.post('https://localhost:8888/Petish/register',data)
+    // .then(res => {
+    //   console.log('res: ',res);
+    //   setUsername("");
+    //   setEmail("");
+    //   setPassword("");
+    // })
 
   };
 
-  const Register = () => {
+  const Register = ({ navigation }) => {
     
     const [userName, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [Name, setName] = useState('');
     return (
       
       <View style={styles.container}>
@@ -40,6 +42,12 @@
       <Text style={styles.text}>Register</Text>
       </View>
       <View style={styles.registerForm}>
+
+      <CustomInput label='Name' 
+     placeholder='Your Name' 
+     value={Name} 
+     setValue={setName}/>
+
      <CustomInput label='Username' 
      placeholder='Your Username' 
      value={userName} 
@@ -89,7 +97,7 @@ const styles = StyleSheet.create({
   registerForm:{
     paddingHorizontal:40,
     marginBottom:0,
-    paddingVertical:40,
+    paddingVertical:0,
     // backgroundColor:'rgba(94, 45, 20, 0.69)',
     borderRadius:40
   },
@@ -99,7 +107,7 @@ const styles = StyleSheet.create({
     width:'50%',
     borderRadius:50,
     backgroundColor:'rgba(240, 199, 164, 1)',
-    marginTop:50,
+    marginTop:20,
     paddingVertical:10
   },
   btn_label:{
