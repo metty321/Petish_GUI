@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CustomInput from '../../components/CustomInput';
 import {
    StyleSheet,
@@ -8,19 +9,50 @@ import {
    TouchableOpacity
  } from 'react-native';
 
+ import { ReactDOM } from 'react';
 
- //buat fungsi buat mengolah input dan mengirimkannya ke database
- const onLoginPressed =() =>{
-   console.warn('Sign Up');
+ import AsyncStorage from '@react-native-async-storage/async-storage';
+ import axios from "axios";
 
- };
-
-
+//  import {login, reset} from '../../features/auth/authSlice'
+//  const dispatch = useDispatch();
  const Login = ({ navigation }) => {
    
 
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
+
+
+   //buat fungsi buat mengolah input dan mengirimkannya ke database
+ const onLoginPressed =() =>{
+  const data = {
+    email,
+    password
+  }    
+  axios.post(`http://10.0.2.2:8888/petish/login`, {data}
+  ).then(function (response) {
+
+    alert(response.message)
+    console.log(response);
+    setEmail("");
+  setPassword("");
+  navigation.navigate('MainApp')
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  const storeData = async (data) => {
+    try {
+      const jsonValue = JSON.stringify(data)
+      await AsyncStorage.setItem('@storage_Key', jsonValue)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  
+};
+
+
    return (
      
      <View style={styles.container}>
@@ -33,7 +65,7 @@ import {
     {/* <CustomInput label='Phone Number' placeholder='Your Phone Number' setValue={setPhoneNumber}/> */}
     <CustomInput label='Password' placeholder='Your Password' setValue={setPassword}/>
     
-    <Pressable  onPress={()=>navigation.navigate('MainApp')} style={styles.Register_btn}>
+    <Pressable  onPress={onLoginPressed} style={styles.Register_btn}>
     <TouchableOpacity>
      <Text style={styles.btn_label}>Submit</Text>
      </TouchableOpacity>

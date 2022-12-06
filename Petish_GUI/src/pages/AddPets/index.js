@@ -1,19 +1,25 @@
 import React, { useState } from "react";
-import { StyleSheet,useWindowDimensions,View,Text,TextInput } from "react-native";
+import { StyleSheet,useWindowDimensions,View,Text,TextInput,Platform } from "react-native";
 import RadioGroup from 'react-native-radio-buttons-group';
 import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 
 const radioButtonsData = [{
     id: '1', // acts as primary key, should be unique and non-empty string
     label: 'Male',
     value: 'male',
-    size :12
+    size :12,
+    borderColor: '#F0C7A4',
+    color:'#F0C7A4'
 }, {
     id: '2',
     label: 'Female',
     value: 'female',
-    size :12
+    size :12,
+    borderColor:'#F0C7A4' ,
+    color:'#F0C7A4'
 }]
 
 
@@ -53,7 +59,7 @@ const AddPets = () =>{
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Text style={styles.input_Label}>Pet Type:</Text>
+                    <Text style={styles.input_Label}>Pet Type</Text>
                 <SelectDropdown
             data={Pet}
             
@@ -78,6 +84,11 @@ const AddPets = () =>{
             rowStyle={styles.dropdown2RowStyle}
             rowTextStyle={styles.dropdown2RowTxtStyle}
           />
+                </View> 
+
+                <View style={styles.inputContainer}>
+                    <Text style={styles.input_Label}>Date of Birth</Text>
+                    
                 </View>
             </View>
         </View>

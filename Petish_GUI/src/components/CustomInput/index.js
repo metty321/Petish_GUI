@@ -8,7 +8,7 @@ import {
  } from 'react-native';
 
 
- const CustomInput = (props) => {
+ const CustomInput = ({label,value, setValue, placeholder}) => {
    var width = Dimensions.get('window').width;
   // const [value,setValue] =  useState('');
    return (
@@ -16,13 +16,13 @@ import {
      
     
     <View style={styles.container}>
-      <Text style={styles.label}>{props.label}</Text>
+      <Text style={styles.label}>{label}</Text>
      <TextInput 
-     placeholder={props.placeholder} 
+     placeholder={placeholder} 
      style={styles.input}
-     value ={props.value}
-     onChangeText={props.setValue}
-     secureTextEntry={props.secureTextEntry}/>
+     value ={value}
+     onChangeText={setValue}
+     />
      </View>
      
    );

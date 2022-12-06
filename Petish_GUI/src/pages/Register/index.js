@@ -1,47 +1,91 @@
- import React,{useState} from 'react';
+ import React,{useEffect, useState} from 'react';
  import CustomInput from '../../components/CustomInput';
- import axios, { Axios } from 'axios';
+ import axios from 'axios'
+ 
  import {
     StyleSheet,
     Text,
     View,
     Pressable,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert,
+    RefreshControlBase
   } from 'react-native';
+// import { err } from 'react-native-svg/lib/typescript/xml';
 
 
-  //buat fungsi buat mengolah input dan mengirimkannya ke database
-  const onRegisterPressed = async () =>{
-    const data = {
-      userName,
-      email,
-      password
-    }
-
-    await Axios.post('https://localhost:8888/petish/register',{data})
-    .then(res => {
-      console.log('res: ',res);
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      if(!res.success){
-        alert(res.message);
-      }
-      else{
-        //navigate atau arahin ke halaman varif email dengna token
-        //trus kirim {profile: res.user}
-      }
-    })
-    
-  };
+ 
 
   const Register = ({ navigation }) => {
     
-    const [userName, setUsername] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [Name, setName] = useState('');
+    const [name, setName] = useState('');
+
+     function onRegisterPressed() {
+      const data = {
+        name: name,
+        email: email,
+        username: username,
+        password: password
+      }
+      // await axios.post(`http://192.168.110.18:8888/petish/register`, 
+      // data)
+      // .then(function (response) {
+      //   alert('pressed')
+      //   alert(response.message)
+      //   console.log(response);
+      // })
+      // .catch(function (error) {
+      //   if (error.response){
+
+      //     //do something
+      //     alert('error from backend')
+          
+      //     }else if(error.request){
+          
+      //     //do something else
+      //     alert('error from request')
+          
+      //     }else if(error.message){
+      //     alert(error.message)
+      //     //do something other than the other two
+          
+      //     }
+      // });
+      // console.log(data)
+      // fetch(`https://localhost:8888/petish/register`,{
+      //   method:'POST',
+      //   header:{
+      //     'Content-Type' : 'application/json'
+      //   },
+      //   body: JSON.stringify(data)
+      // }).then(response=>{
+      //   console.log('res: ',response.json());
+      //   alert('registered!')
+      // })
+
+       axios.post('http://10.0.2.2:8888/petish/register',data)
+      .then(res => {
+        alert('registered!')
+        console.log('res: ',res);
+        setName("")
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        navigation.navigate("Login")
+      }).catch(err=>console.log(err))
+     
+      
+    };
+
+ //buat fungsi buat mengolah input dan mengirimkannya ke database
+
+
+
     return (
+      
       
       <View style={styles.container}>
         <View>
@@ -51,12 +95,12 @@
 
       <CustomInput label='Name' 
      placeholder='Your Name' 
-     value={Name} 
+     value={name} 
      setValue={setName}/>
 
      <CustomInput label='Username' 
      placeholder='Your Username' 
-     value={userName} 
+     value={username} 
      setValue={setUsername}/>
 
      <CustomInput label='Email' 
@@ -87,7 +131,7 @@
 const styles = StyleSheet.create({
   container:{
     // alignItems:'center',
-    paddingVertical:20
+    paddingVertical:0
     
   },
   text:{
@@ -95,7 +139,7 @@ const styles = StyleSheet.create({
     fontFamily:'SuezOne-Regular',
     fontSize:32,
     color:'#5E2D14',
-    paddingVertical:50,
+    paddingVertical:'8%',
     // position:'absolute'
    
   },
@@ -103,7 +147,6 @@ const styles = StyleSheet.create({
   registerForm:{
     paddingHorizontal:40,
     marginBottom:0,
-    paddingVertical:0,
     // backgroundColor:'rgba(94, 45, 20, 0.69)',
     borderRadius:40
   },
