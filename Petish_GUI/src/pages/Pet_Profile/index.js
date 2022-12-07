@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet,useWindowDimensions,View,Text,Image } from "react-native";
 import Logo from '../../../assets/img/Logo.png'
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //nanti bakal pake useEffect() buat render screen sesuai dengan input user
 //referensi     : https://stackoverflow.com/questions/45478621/react-native-styling-with-conditional
@@ -14,6 +15,7 @@ import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const Pet_Profile = ({ navigation }) =>{
     const {width,height} = useWindowDimensions();
+    
     return(
 
         // <Text>Pet Profile</Text>

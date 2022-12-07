@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CustomInput from '../../components/CustomInput';
 import {
@@ -22,33 +22,43 @@ import {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
 
+   useEffect(async()=>{
+    const _sessionValidation = async()=>{
+      const isLogin = await AsyncStorage.getItem('AccessToken')
+      if(isLogin){
+        navigation.navigate('MainApp')
+      } 
+    }
+    _sessionValidation()
+   },[])
+
 
    //buat fungsi buat mengolah input dan mengirimkannya ke database
- const onLoginPressed =() =>{
+ const onLoginPressed = async() =>{
   const data = {
     email,
     password
   }    
-  axios.post(`http://10.0.2.2:8888/petish/login`, {data}
-  ).then(function (response) {
 
-    alert(response.message)
-    console.log(response);
+  axios.post('http://10.0.2.2:8888/petish/login',data)
+  .then(res => {
+    alert('Login successful')
+    console.log('res: ',res.data.user.token);
+    AsyncStorage.setItem("AccessToken",res.data.user.token)
     setEmail("");
-  setPassword("");
-  navigation.navigate('MainApp')
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  const storeData = async (data) => {
-    try {
-      const jsonValue = JSON.stringify(data)
-      await AsyncStorage.setItem('@storage_Key', jsonValue)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+    setPassword("");
+    navigation.replace("MainApp")
+  }).catch(err=>console.log(err))
+
+
+  // const storeData = async (data) => {
+  //   try {
+  //     const jsonValue = JSON.stringify(data)
+  //     await AsyncStorage.setItem('@storage_Key', jsonValue)
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
   
 };
 
