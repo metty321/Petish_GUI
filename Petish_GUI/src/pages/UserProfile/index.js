@@ -12,14 +12,14 @@ const UserProfile = ({navigation}) =>{
             <Text style={styles.pageTitle}>Profile</Text>
             <View style={styles.userInfo_Container}>
             
-             <Text style={styles.jametusFaaktusText}>Jametus faaktus</Text>
+             <Text style={styles.usernameText}>Jametus faaktus</Text>
             <Pressable
                 style={styles.logOutPressable}
                 onPress={() => navigation.navigate("Logout")}
             >
                 <Text style={styles.logOutText}>Log Out</Text>
             </Pressable>
-            <Text style={styles.jametus69gmailcomText}>jametus69@gmail.com</Text>
+            <Text style={styles.emailText}>jametus69@gmail.com</Text>
             <Image
                 style={styles.ellipseIcon1}
                 resizeMode="cover"
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         color:'#5E2D14'
     },
 
-    jametusFaaktusText: {
+    usernameText: {
         position: "absolute",
         top: 80,
         left: 150,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         left: 255,
         top: 311,
     },
-    jametus69gmailcomText: {
+    emailText: {
         position: "absolute",
         top: 110,
         left: 150,

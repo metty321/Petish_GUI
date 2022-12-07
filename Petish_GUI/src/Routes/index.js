@@ -14,7 +14,9 @@ import Vets from "../pages/Vets";
 import CustomBottomNavigator from "../components/CustomBottomNavigator";
 import AddPets from "../pages/AddPets";
 import PetProfileWithPet from "../pages/PetProfileWithPet";
-import editUserProfile from "../pages/editUserProfile";
+import EditUserProfile from "../pages/EditUserProfile";
+import AddReminder from "../pages/AddReminder";
+import PetInfo from "../pages/PetInfo"
 
 const Stack = createNativeStackNavigator();
 const PetProfileStack = createNativeStackNavigator();
@@ -35,7 +37,7 @@ const AddPetProfile = ()=>{
   )
 }
 
-const userProfile = ()=>{
+/*const userProfile = ()=>{
   return (
     <PetProfileStack.Navigator initialRouteName="UserProfile">
       <PetProfileStack.Screen name="UserProfile" component={UserProfile} options={{
@@ -47,7 +49,7 @@ const userProfile = ()=>{
     
     </PetProfileStack.Navigator>
   )
-}
+}*/
 
 
 const MainApp = () => {
@@ -65,8 +67,8 @@ const MainApp = () => {
 }
     
 const Router = () => {
-  return  (<Stack.Navigator initialRouteName={"MainApp"}>
-    <Stack.Screen name="Home" component={Home} options={{
+  return  (<Stack.Navigator initialRouteName={"PetInfo"}>
+      <Stack.Screen name="Home" component={Home} options={{
           headerShown:false
         }}/>
       <Stack.Screen name="Splash" component={Splash} options={{
@@ -79,6 +81,21 @@ const Router = () => {
           headerShown:false
         }}/>
         <Stack.Screen name="MainApp" component={MainApp} 
+        options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="PetProfileWithPet" component={PetProfileWithPet} 
+        options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="EditUserProfile" component={EditUserProfile} 
+        options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="AddReminder" component={AddReminder} 
+        options={{
+          headerShown:false
+        }}/><Stack.Screen name="PetInfo" component={PetInfo} 
         options={{
           headerShown:false
         }}/>

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import CustomInput from '../../components/CustomInput';
 import Logo from '../../../assets/img/Logo.png'
 import {
@@ -8,13 +8,35 @@ import {
    Image,
    useWindowDimensions,
    Pressable,
-   TouchableOpacity
+   TouchableOpacity,
+   BackHandler,
+   Alert
  } from 'react-native';
 
  
 
  const Home =({ navigation }) => {
     //const [user, setUser] = useState([]);
+    useEffect(() => {
+        const backAction = () => {
+        Alert.alert("Hold on!", "Are you sure you want to go back?", [
+            {
+            text: "Cancel",
+            onPress: () => null,
+            style: "cancel"
+            },
+            { text: "YES", onPress: () => BackHandler.exitApp() }
+        ]);
+        return true;
+        };
+
+        const backHandler = BackHandler.addEventListener(
+        "hardwareBackPress",
+        backAction
+        );
+        return () => backHandler.remove();
+    }, []);
+
     const {width,height} = useWindowDimensions();
     return(
     <View style={styles.root}>  
