@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   },
   rectangleLinearGradient1: {
     position: "absolute",
-    top: "65%",
+    top: 250,
     left: 75,
     borderRadius: 20,
     width: 100,
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     backgroundColor: "rgba(0, 0, 0, 0.8)",
-    width: 393,
+    width: 500,
     height: 852,
   },
   rectanglePressable: {
@@ -483,7 +483,6 @@ const styles = StyleSheet.create({
     bottom: "34.95%",
     width: "2.54%",
     height: "1.9%",
-    backgroundColor: "rgba(94, 45, 20, 0.5)",
   },
   icon1: {
     width: "100%",
@@ -503,6 +502,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 852,
     overflow: "hidden",
+    padding: 20
   },
 });
 

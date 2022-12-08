@@ -17,6 +17,9 @@ import PetProfileWithPet from "../pages/PetProfileWithPet";
 import EditUserProfile from "../pages/EditUserProfile";
 import AddReminder from "../pages/AddReminder";
 import PetInfo from "../pages/PetInfo"
+import FoodDetail from "../pages/FoodDetail"
+import EditReminder from "../pages/EditReminder"
+import Logout from "../pages/Logout"
 
 const Stack = createNativeStackNavigator();
 const PetProfileStack = createNativeStackNavigator();
@@ -67,7 +70,7 @@ const MainApp = () => {
 }
     
 const Router = () => {
-  return  (<Stack.Navigator initialRouteName={"PetInfo"}>
+  return  (<Stack.Navigator initialRouteName={"Logout"}>
       <Stack.Screen name="Home" component={Home} options={{
           headerShown:false
         }}/>
@@ -95,8 +98,21 @@ const Router = () => {
         <Stack.Screen name="AddReminder" component={AddReminder} 
         options={{
           headerShown:false
-        }}/><Stack.Screen name="PetInfo" component={PetInfo} 
+        }}/>
+        <Stack.Screen name="PetInfo" component={PetInfo} 
         options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="FoodDetail" component={FoodDetail} options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="EditReminder" component={EditReminder} options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="Logout" component={Logout} options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="UserProfile" component={UserProfile} options={{
           headerShown:false
         }}/>
         
