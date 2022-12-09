@@ -62,14 +62,14 @@ const PetInfo = () => {
       </Pressable>
       <Pressable
         style={styles.groupPressable1}
-        onPress={() => navigation.navigate("PetInfo")}
+        onPress={() => navigation.navigate("AddPets")}
       >
         <View style={styles.rectangleView1} />
         <Text style={styles.editText}>Edit</Text>
       </Pressable>
       <Pressable
         style={styles.deletePressable}
-        onPress={() => navigation.navigate("PetProfileWithPet")}
+        onPress={() => navigation.navigate("")}
       >
         <Image
           style={styles.icon1}

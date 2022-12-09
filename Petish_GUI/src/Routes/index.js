@@ -70,7 +70,7 @@ const MainApp = () => {
 }
     
 const Router = () => {
-  return  (<Stack.Navigator initialRouteName={"Logout"}>
+  return  (<Stack.Navigator initialRouteName={"MainApp"}>
       <Stack.Screen name="Home" component={Home} options={{
           headerShown:false
         }}/>

@@ -22,14 +22,16 @@ const PetProfileWithPet = () =>{
         >
             <Pressable
             style={styles.pressable1}
-            onPress={() => navigation.navigate("Doggo1")}
+            onPress={() => navigation.navigate("PetInfo")}
             />
         </LinearGradient>
-        <Text style={styles.doggoText}>Doggo</Text>
+        <Text style={styles.doggoText}
+        onPress={() => navigation.navigate("PetInfo")}>Doggo</Text>
         <Image
             style={styles.dog1Icon}
             resizeMode="cover"
             source={require("../../../assets/img/dog-110.png")}
+            onPress={() => navigation.navigate("PetInfo")}
         />
     
         <View style={[styles.AddPetContainer,{width : width * 0.7}]}>

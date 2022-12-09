@@ -8,128 +8,81 @@ const AddReminder = () => {
 
     return (
         <View style={styles.reminderView}>
-        <LinearGradient
-            style={styles.rectangleLinearGradient}
-            locations={[0, 1]}
-            colors={["#f0c7a4", "rgba(240, 199, 164, 0)"]}
-            useAngle={true}
-            angle={112.63}
-        />
-        <Image
-            style={styles.dog1Icon}
-            resizeMode="cover"
-            source={require("../../../assets/img/dog-11.png")}
-        />
-        <Image
-            style={styles.vectorIcon}
-            resizeMode="cover"
-            source={require("../../../assets/img/vector1.png")}
-        />
-        <Pressable
-            style={styles.groupPressable}
-            onPress={() => navigation.navigate("AddPet6")}
-        >
-            <View style={styles.rectangleView} />
-            <Text style={styles.editText}>Edit</Text>
-        </Pressable>
-        <View style={styles.groupView}>
-            <LinearGradient
-            style={styles.rectangleLinearGradient1}
-            locations={[0, 1]}
-            colors={["#5e2d14", "rgba(255, 255, 255, 0)"]}
-            useAngle={true}
-            angle={143.5}
-            />
-            <Image
-            style={styles.femaleIcon}
-            resizeMode="cover"
-            source={require("../../../assets/img/female.png")}
-            />
-            <Text style={styles.sexText}>Sex</Text>
-        </View>
-        <View style={styles.groupView1}>
-            <LinearGradient
-            style={styles.rectangleLinearGradient2}
-            locations={[0, 1]}
-            colors={["#5e2d14", "rgba(255, 255, 255, 0)"]}
-            useAngle={true}
-            angle={143.5}
-            />
-            <Text style={styles.yearsOldText1}>
-            <Text style={styles.text}>{` 1.5 `}</Text>
-            <Text style={styles.yearsOldText}>years old</Text>
-            </Text>
-        </View>
-        <View style={styles.groupView2}>
-            <View style={styles.rectangleView1} />
-            <Text style={styles.addReminderText}>Add Reminder</Text>
-        </View>
-        <View style={styles.rectangleView2} />
-        <Pressable
-            style={styles.rectanglePressable}
-            onPress={() => navigation.navigate("PetInfo")}
-        />
-        <Pressable
-            style={styles.rectanglePressable1}
-            onPress={() => navigation.navigate("PetInfo")}
-        />
-        <View style={styles.rectangleView3} />
-        <Image
-            style={styles.notificationsIcon}
-            resizeMode="cover"
-            source={require("../../../assets/img/notifications.png")}
-        />
-        <Pressable
-            style={styles.rectanglePressable2}
-            onPress={() => navigation.navigate("Reminder3")}
-        />
-        <Pressable
-            style={styles.rectanglePressable3}
-            onPress={() => navigation.navigate("Reminder5")}
-        />
-        <Pressable
-            style={styles.rectanglePressable4}
-            onPress={() => navigation.navigate("Reminder1")}
-        />
-        <Text style={styles.repeatText}>Repeat</Text>
-        <Text style={styles.dateText}>Date</Text>
-        <Text style={styles.titleText}>Title</Text>
-        <Text style={styles.notesText}>Notes</Text>
-        <Text style={styles.timeText}>Time</Text>
-        <View style={styles.lineView} />
-        <View style={styles.lineView1} />
-        <View style={styles.lineView2} />
-        <View style={styles.lineView3} />
-        <Image
-            style={styles.nestClockFarsightAnalogIcon}
-            resizeMode="cover"
-            source={require("../../../assets/img/nest-clock-farsight-analog.png")}
-        />
-        <Image
-            style={styles.calendarMonthIcon}
-            resizeMode="cover"
-            source={require("../../../assets/img/calendar-month.png")}
-        />
-        <Pressable
-            style={styles.vectorPressable}
-            onPress={() => navigation.navigate("MainMenuWithPet")}
-        >
-            <Image
-            style={styles.icon}
-            resizeMode="cover"
-            source={require("../../../assets/img/vector.png")}
-            />
-        </Pressable>
-        <Pressable
-            style={styles.deletePressable}
-            onPress={() => navigation.navigate("Doggo")}
-        >
-            <Image
-            style={styles.icon1}
-            resizeMode="cover"
-            source={require("../../../assets/img/delete.png")}
-            />
-        </Pressable>
+          <LinearGradient
+              style={styles.rectangleLinearGradient}
+              locations={[0, 1]}
+              colors={["#f0c7a4", "rgba(240, 199, 164, 0)"]}
+              useAngle={true}
+              angle={112.63}
+          />
+          <Image
+              style={styles.dog1Icon}
+              resizeMode="contain"
+              source={require("../../../assets/img/dog-11.png")}
+          />
+          <Image
+              style={styles.vectorIcon}
+              resizeMode="contain"
+              source={require("../../../assets/img/vector1.png")}
+          />
+          <Pressable
+              style={styles.groupPressable}
+          >
+              <View style={styles.rectangleView} />
+              <Text style={styles.editText}>Edit</Text>
+          </Pressable>
+        
+      
+          <View style={styles.groupView2}>
+              <View style={styles.rectangleView1} />
+              <Text style={styles.addReminderText}>Add Reminder</Text>
+          </View>
+          <View style={styles.rectangleView2} />
+          <Pressable
+              style={styles.rectanglePressable}
+              onPress={() => navigation.navigate("PetInfo")}
+          />
+          <Pressable
+              style={styles.rectanglePressable1}
+              onPress={() => navigation.navigate("PetInfo")}
+          />
+          <View style={styles.rectangleView3} />
+          <Image
+              style={styles.notificationsIcon}
+              resizeMode="contain"
+              source={require("../../../assets/img/notifications.png")}
+          />
+          <Pressable
+              style={styles.rectangleTime}
+              onPress={() => navigation.navigate("")}
+          />
+          <Pressable
+              style={styles.rectangleRepeat}
+              onPress={() => navigation.navigate("")}
+          />
+          <Pressable
+              style={styles.rectangleDate}
+              onPress={() => navigation.navigate("")}
+          />
+          <Text style={styles.repeatText}>Repeat</Text>
+          <Text style={styles.dateText}>Date</Text>
+          <Text style={styles.titleText}>Title</Text>
+          <Text style={styles.notesText}>Notes</Text>
+          <Text style={styles.timeText}>Time</Text>
+          <View style={styles.lineView} />
+          <View style={styles.lineView1} />
+          <View style={styles.lineView2} />
+          <View style={styles.lineView3} />
+          <Image
+              style={styles.nestClockFarsightAnalogIcon}
+              resizeMode="cover"
+              source={require("../../../assets/img/nest-clock-farsight-analog.png")}
+          />
+          <Image
+              style={styles.calendarMonthIcon}
+              resizeMode="cover"
+              source={require("../../../assets/img/calendar-month.png")}
+          />
         </View>
     );
 };
@@ -160,14 +113,8 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280,
   },
-  icon: {
-    height: "100%",
-    width: "100%",
-    maxWidth: "100%",
-    overflow: "hidden",
-    maxHeight: "100%",
-  },
-  vectorPressable: {
+
+  vectorIcon: {
     position: "absolute",
     left: "8.11%",
     top: "8%",
@@ -176,6 +123,7 @@ const styles = StyleSheet.create({
     width: "3.82%",
     height: "2.85%",
   },
+ 
   rectangleLinearGradient1: {
     position: "absolute",
     top: "65%",
@@ -187,7 +135,7 @@ const styles = StyleSheet.create({
   },
   rectangleLinearGradient2: {
     position: "absolute",
-    top: "65%",
+    top: 280,
     left: 230,
     borderRadius: 20,
     width: 100,
@@ -231,10 +179,10 @@ const styles = StyleSheet.create({
     color: "#f0c7a4",
     textAlign: "center",
   },
-  rectangleView: {
+  rectangleView1: {
     position: "absolute",
-    top: -120,
-    left: 8,
+    top: 582,
+    left: 59,
     borderRadius: 20,
     backgroundColor: "#f0c7a4",
     width: 285,
@@ -242,8 +190,8 @@ const styles = StyleSheet.create({
   },
   addReminderText: {
     position: "absolute",
-    top: -110,
-    left: 83,
+    top: 594,
+    left: 135,
     fontSize: 20,
     fontFamily: "SuezOne-Regular",
     color: "#5e2d14",
@@ -257,10 +205,10 @@ const styles = StyleSheet.create({
     width: 285,
     height: 48,
   },
-  rectangleView1: {
+  rectangleView: {
     position: "absolute",
-    top: -240,
-    left: 10,
+    top: -180,
+    left: 4,
     borderRadius: 20,
     backgroundColor: "#825b46",
     width: 285,
@@ -268,12 +216,12 @@ const styles = StyleSheet.create({
   },
   editText: {
     position: "absolute",
-    top: -230,
-    left: 130,
+    top: -170,
+    left: 120,
     fontSize: 20,
     fontFamily: "SuezOne-Regular",
     color: "#f0c7a4",
-    textAlign: "left",
+    textAlign: "center",
     width: 43,
   },
   groupPressable1: {
@@ -283,24 +231,13 @@ const styles = StyleSheet.create({
     width: 285,
     height: 48,
   },
-  icon1: {
-    width: "100%",
-    height: "100%",
-  },
-  deletePressable: {
-    position: "absolute",
-    left: 333,
-    top: "7%",
-    width: 35,
-    height: 35,
-  },
  
   rectangleView2: {
     position: "absolute",
     top: 0,
     left: 0,
     backgroundColor: "rgba(0, 0, 0, 0.8)",
-    width: 393,
+    width: 420,
     height: 852,
   },
   rectanglePressable: {
@@ -321,8 +258,8 @@ const styles = StyleSheet.create({
   },
   rectangleView3: {
     position: "absolute",
-    top: 274,
-    left: 18,
+    top: 180,
+    left: 25,
     borderRadius: 30,
     backgroundColor: "#f0c7a4",
     width: 358,
@@ -332,7 +269,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: "4.6%",
     width: "7.97%",
-    top: "34.15%",
+    top: "30.15%",
     right: "11.37%",
     bottom: "61.25%",
     left: "80.66%",
@@ -340,83 +277,83 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     maxHeight: "100%",
   },
-  rectanglePressable2: {
+  rectangleTime: {
     position: "absolute",
-    top: 454,
-    left: 18,
+    top: 380,
+    left: 25,
     backgroundColor: "#f0c7a4",
     width: 358,
     height: 43,
   },
-  rectanglePressable3: {
+  rectangleRepeat: {
     position: "absolute",
-    top: 535,
+    top: 440,
     left: 49,
     backgroundColor: "#f0c7a4",
     width: 299,
     height: 43,
   },
-  rectanglePressable4: {
+  rectangleDate: {
     position: "absolute",
-    top: 411,
-    left: 18,
+    top: 330,
+    left: 25,
     backgroundColor: "#f0c7a4",
     width: 358,
     height: 43,
   },
   repeatText: {
     position: "absolute",
-    top: 535,
-    left: 49,
+    top: 445,
+    left: 55,
     fontSize: 16,
-    fontFamily: "Suez One",
+    fontFamily: "SuezOne-Regular",
     color: "#5e2d14",
     textAlign: "left",
     width: 71,
   },
   dateText: {
     position: "absolute",
-    top: 421,
+    top: 340,
     left: 87,
     fontSize: 16,
-    fontFamily: "Suez One",
+    fontFamily: "SuezOne-Regular",
     color: "rgba(94, 45, 20, 0.3)",
     textAlign: "left",
     width: 51,
   },
   titleText: {
     position: "absolute",
-    top: 341,
+    top: 240,
     left: 49,
     fontSize: 16,
-    fontFamily: "Suez One",
+    fontFamily: "SuezOne-Regular",
     color: "rgba(94, 45, 20, 0.3)",
     textAlign: "left",
     width: 51,
   },
   notesText: {
     position: "absolute",
-    top: 382,
+    top: 290,
     left: 49,
     fontSize: 16,
-    fontFamily: "Suez One",
+    fontFamily: "SuezOne-Regular",
     color: "rgba(94, 45, 20, 0.3)",
     textAlign: "left",
     width: 57,
   },
   timeText: {
     position: "absolute",
-    top: 463,
+    top: 390,
     left: 87,
     fontSize: 16,
-    fontFamily: "Suez One",
+    fontFamily: "SuezOne-Regular",
     color: "rgba(94, 45, 20, 0.3)",
     textAlign: "left",
     width: 52,
   },
   lineView: {
     position: "absolute",
-    top: 363.5,
+    top: 270,
     left: 48.5,
     borderStyle: "solid",
     borderColor: "rgba(0, 0, 0, 0.2)",
@@ -426,7 +363,7 @@ const styles = StyleSheet.create({
   },
   lineView1: {
     position: "absolute",
-    top: 455.99,
+    top: 365,
     left: 86.5,
     borderStyle: "solid",
     borderColor: "rgba(0, 0, 0, 0.2)",
@@ -436,7 +373,7 @@ const styles = StyleSheet.create({
   },
   lineView2: {
     position: "absolute",
-    top: 496.5,
+    top: 415,
     left: 86.5,
     borderStyle: "solid",
     borderColor: "rgba(0, 0, 0, 0.2)",
@@ -446,7 +383,7 @@ const styles = StyleSheet.create({
   },
   lineView3: {
     position: "absolute",
-    top: 404.5,
+    top:320,
     left: 48.5,
     borderStyle: "solid",
     borderColor: "rgba(0, 0, 0, 0.2)",
@@ -456,14 +393,14 @@ const styles = StyleSheet.create({
   },
   nestClockFarsightAnalogIcon: {
     position: "absolute",
-    top: 467,
+    top: 390,
     left: 49,
     width: 24,
     height: 24,
   },
   calendarMonthIcon: {
     position: "absolute",
-    top: 428,
+    top: 340,
     left: 49,
     width: 24,
     height: 24,
@@ -475,6 +412,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     maxHeight: "100%",
   },
+  
   vectorPressable: {
     position: "absolute",
     left: "83.46%",
