@@ -27,7 +27,11 @@ import {
     if (label ==="AddPetScreen"){
       return isFocused?<PetProfileActive/>:<PetProfile/>;
     }
+<<<<<<< HEAD
     if (label ==="AddTaskPage"){
+=======
+    if (label ==="Calendar"){
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       return isFocused?<CalendarActive/>:<Calendar/>;;
     }
 

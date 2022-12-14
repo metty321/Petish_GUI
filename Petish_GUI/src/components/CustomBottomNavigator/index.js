@@ -62,8 +62,13 @@ const styles = StyleSheet.create({
         paddingVertical:5,
         justifyContent:'space-between',
         backgroundColor:'rgba(145,111,94,255)',
+<<<<<<< HEAD
         // borderTopLeftRadius: 20,
         // borderTopRightRadius: 20
+=======
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       
     }
 });

@@ -4,6 +4,7 @@ import Logo from '../../../assets/img/Logo.png'
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TouchableOpacity } from "react-native-gesture-handler";
+<<<<<<< HEAD
 import LinearGradient from "react-native-linear-gradient";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
@@ -11,11 +12,18 @@ import { useNavigation } from "@react-navigation/native";
 //referensi     : https://stackoverflow.com/questions/45478621/react-native-styling-with-conditional
 
 
+=======
+
+//nanti bakal pake useEffect() buat render screen sesuai dengan input user
+//referensi     : https://stackoverflow.com/questions/45478621/react-native-styling-with-conditional
+
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 // const onAddPressed=(navigat)=>{
     
 //     alert('Button Pressed!');
     
 // }
+<<<<<<< HEAD
 const DisplayPet = ({petType}) => {
   
 
@@ -141,13 +149,26 @@ const Pet_Profile = ({ navigation }) =>{
     // }
     
     return(
+=======
+
+const Pet_Profile = ({ navigation }) =>{
+    const {width,height} = useWindowDimensions();
+    
+    return(
+
+        // <Text>Pet Profile</Text>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         <View style={styles.root}>
         <Text style={styles.pageTitle}>My Pets</Text>
         
         <View style={[styles.AddPetContainer,{width : width * 0.7}]}>
         
             <View style={styles.AddPet}>
+<<<<<<< HEAD
             <Pressable  onPress={()=> navigation.replace('AddPets')}>
+=======
+            <Pressable  onPress={()=> navigation.navigate('AddPets')}>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
             <Text style={styles.addNow}>+</Text>
             </Pressable>
             </View>
@@ -155,6 +176,7 @@ const Pet_Profile = ({ navigation }) =>{
         <Text style={styles.addPet_Text}>Add your pet now!</Text>
         </View>
       <Image source={Logo} style={[styles.Logo,{height : height * 0.3}]} resizeMode= 'contain'/>
+<<<<<<< HEAD
 
       
       
@@ -176,6 +198,9 @@ const Pet_Profile = ({ navigation }) =>{
       
         </View>
       
+=======
+        </View>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     );
 };
 
@@ -202,7 +227,11 @@ const styles = StyleSheet.create({
      },
 
     Logo:{
+<<<<<<< HEAD
         zIndex:-999,
+=======
+        zIndex:0,
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         alignSelf:'center',
         bottom: "5%",
         width:'70%',
@@ -235,6 +264,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(145, 111, 94, 1)',
     justifyContent:'center',
     alignContent:'center'
+<<<<<<< HEAD
     },
     itemContainer:{
         // overflow: 'hidden',
@@ -288,6 +318,8 @@ const styles = StyleSheet.create({
     petImageContainer:{
       width:100,
       height:100
+=======
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     }
    
    })

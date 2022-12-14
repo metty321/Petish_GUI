@@ -66,7 +66,11 @@
       //   alert('registered!')
       // })
 
+<<<<<<< HEAD
        axios.post('https://petish-back.onrender.com/petish/register',data)
+=======
+       axios.post('http://10.0.2.2:8888/petish/register',data)
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       .then(res => {
         alert('registered!')
         console.log('res: ',res);
@@ -208,7 +212,11 @@ const styles = StyleSheet.create({
   },
 
   Register_btn:{
+<<<<<<< HEAD
     alignSelf:'center', 
+=======
+    alignSelf:'center',
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     width:'50%',
     borderRadius:20,
     backgroundColor:'rgba(240, 199, 164, 1)',

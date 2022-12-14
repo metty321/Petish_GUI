@@ -27,12 +27,18 @@
     "axios": "^0.26.1",
     "react": "18.1.0",
     "react-native": "0.70.4",
+<<<<<<< HEAD
     "react-native-calendars": "^1.1292.0",
     "react-native-dropdown-select-list": "^2.0.2",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-linear-gradient": "^2.6.2",
     "react-native-modern-datepicker": "^1.0.0-beta.91",
     "react-native-push-notification": "^8.1.1",
+=======
+    "react-native-dropdown-select-list": "^2.0.2",
+    "react-native-gesture-handler": "^2.8.0",
+    "react-native-linear-gradient": "^2.6.2",
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     "react-native-radio-buttons-group": "^2.2.11",
     "react-native-reanimated": "^2.13.0",
     "react-native-responsive-fontsize": "^0.5.1",

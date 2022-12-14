@@ -107,6 +107,17 @@ const PetInfo = ({route,   navigation: { goBack },navigation}) => {
   
   return (
     
+=======
+import * as React from "react";
+import { StyleSheet, View, Text, Image, Pressable } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
+
+const PetInfo = () => {
+  const navigation = useNavigation();
+
+  return (
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     <View style={styles.doggoView}>
       <LinearGradient
         style={styles.rectangleLinearGradient}
@@ -115,6 +126,7 @@ const PetInfo = ({route,   navigation: { goBack },navigation}) => {
         useAngle={true}
         angle={112.63}
       />
+<<<<<<< HEAD
       <Text style={styles.petName}>{name}</Text>
      
       {/* <Image
@@ -125,6 +137,17 @@ const PetInfo = ({route,   navigation: { goBack },navigation}) => {
       <Pressable
         style={styles.vectorPressable}
         onPress={() => goBack()}
+=======
+      <Text style={styles.petName}>Doggo</Text>
+      <Image
+        style={styles.dog1Icon}
+        resizeMode="cover"
+        source={require("../../../assets/img/dog-11.png")}
+      />
+      <Pressable
+        style={styles.vectorPressable}
+        onPress={() => navigation.navigate("PetProfileWithPet")}
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       >
         <Image
           style={styles.icon}
@@ -144,10 +167,21 @@ const PetInfo = ({route,   navigation: { goBack },navigation}) => {
         useAngle={true}
         angle={143.5}
       />
+<<<<<<< HEAD
       <SexSymbol sex={sex}/>
       <Text style={styles.sexText}>Sex</Text>
       <Text style={styles.yearsOldText1}>
         <Text style={styles.text}>{age}</Text>
+=======
+      <Image
+        style={styles.femaleIcon}
+        resizeMode="contain"
+        source={require("../../../assets/img/female.png")}
+      />
+      <Text style={styles.sexText}>Sex</Text>
+      <Text style={styles.yearsOldText1}>
+        <Text style={styles.text}>{` 1.5 `}</Text>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         <Text style={styles.yearsOldText}>years old</Text>
       </Text>
       <Pressable
@@ -166,7 +200,11 @@ const PetInfo = ({route,   navigation: { goBack },navigation}) => {
       </Pressable>
       <Pressable
         style={styles.deletePressable}
+<<<<<<< HEAD
         onPress={() => navigation.navigate("Doggo")}
+=======
+        onPress={() => navigation.navigate("")}
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       >
         <Image
           style={styles.icon1}
@@ -190,20 +228,35 @@ const styles = StyleSheet.create({
   },
   petName: {
     position: "absolute",
+<<<<<<< HEAD
     alignSelf:'center',
     top: "58%",
     fontSize: 64,
     fontFamily: "Calligraffitti-Regular",
     color: "#5e2d14",
     textAlign: "center"
+=======
+    top: "48%",
+    left: 115,
+    fontSize: 64,
+    fontFamily: "Calligraffitti-Regular",
+    color: "#5e2d14",
+    textAlign: "left",
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
   },
   dog1Icon: {
     position: "absolute",
     top: "10%",
+<<<<<<< HEAD
     // left: 58,
     width: 240,
     height: 240,
     alignSelf:'center'
+=======
+    left: 58,
+    width: 280,
+    height: 280,
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
   },
   icon: {
     height: "100%",
@@ -223,8 +276,13 @@ const styles = StyleSheet.create({
   },
   rectangleLinearGradient1: {
     position: "absolute",
+<<<<<<< HEAD
     top: "80%",
     left: "20%",
+=======
+    top: "65%",
+    left: 75,
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     borderRadius: 20,
     width: 100,
     height: 100,
@@ -232,8 +290,13 @@ const styles = StyleSheet.create({
   },
   rectangleLinearGradient2: {
     position: "absolute",
+<<<<<<< HEAD
     top: "80%",
     left: "66%",
+=======
+    top: "65%",
+    left: 230,
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     borderRadius: 20,
     width: 100,
     height: 100,
@@ -243,7 +306,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: "4.99%",
     width: "7%",
+<<<<<<< HEAD
     top: "82.02%",
+=======
+    top: "67.02%",
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     right: "65.97%",
     bottom: "29.99%",
     left: "30.04%",
@@ -253,8 +320,13 @@ const styles = StyleSheet.create({
   },
   sexText: {
     position: "absolute",
+<<<<<<< HEAD
     top: "88.5%",
     left: "29.5%",
+=======
+    top: "73.5%",
+    left: 107,
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     fontSize: 24,
     fontFamily: "Calligraffitti-Regular",
     color: "#f0c7a4",
@@ -269,8 +341,13 @@ const styles = StyleSheet.create({
   },
   yearsOldText1: {
     position: "absolute",
+<<<<<<< HEAD
     top: "85.5%",
     left: "67%",
+=======
+    top: "70.5%",
+    left: 232,
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     fontSize: 18,
     fontFamily: "Calligraffitti-Regular",
     color: "#f0c7a4",

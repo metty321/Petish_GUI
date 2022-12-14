@@ -1,34 +1,40 @@
-import React,{useEffect} from "react";
-import { StyleSheet,useWindowDimensions,View,Text,
-Image, Pressable } from "react-native";
-import account from '../../../assets/img/account.png'
-import AsyncStorage from "@react-native-async-storage/async-storage";
-=======
 import React from "react";
 import { StyleSheet,useWindowDimensions,View,Text,
 Image, Pressable } from "react-native";
 import account from '../../../assets/img/account.png'
 
->>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 
-const UserProfile = ({navigation}) =>{
+const Logout = ({navigation}) =>{
     
     return(
         <View style={styles.root}>
+            <View style={styles.rectangleView} />
             <Text style={styles.pageTitle}>Profile</Text>
             <View style={styles.userInfo_Container}>
             
-<<<<<<< HEAD
-             <Text style={styles.usernameText}>Stipeng Gepeng</Text>
-            <Pressable
-                style={styles.logOutPressable}
-                onPress={() => navigation.navigate("Login")}
-            >
-                <Text style={styles.logOutText}>Log Out</Text>
-            </Pressable>
-            <Text style={styles.emailText}>stipengpeng@gmail.com</Text>
-=======
+            <View style={styles.logoutConfirm}>
+                <Pressable
+                    style={styles.areYouSure1}
+                    onPress={() => navigation.navigate("HomePage")}
+                >
+                    <Text style={styles.areYouSure}>Are you sure?</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.yesPressable}
+                    onPress={() => navigation.navigate("Home")}
+                >
+                    <Text style={styles.yesText}>Yes</Text>
+                </Pressable>
+                <Pressable
+                    style={styles.noPressable}
+                    onPress={() => navigation.navigate("UserProfile")}
+                >
+                    <Text style={styles.noText}>No</Text>
+                </Pressable>
+            </View>
+           
+            
              <Text style={styles.usernameText}>Jametus faaktus</Text>
             <Pressable
                 style={styles.logOutPressable}
@@ -37,7 +43,6 @@ const UserProfile = ({navigation}) =>{
                 <Text style={styles.logOutText}>Log Out</Text>
             </Pressable>
             <Text style={styles.emailText}>jametus69@gmail.com</Text>
->>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
             <Image
                 style={styles.ellipseIcon1}
                 resizeMode="cover"
@@ -69,6 +74,56 @@ const styles = StyleSheet.create({
     root:{
         flex:1,
         padding:20
+    },
+
+    rectangleView: {
+        position: "absolute",
+        top: 320,
+        left: 0,
+        borderRadius: 40,
+        backgroundColor: "#916f5e",
+        width: 415,
+        height: 507,
+     },
+
+    logoutConfirm: {
+        top: -150,
+        left: -15
+    },
+
+    areYouSure: {
+        fontSize: 20,
+        fontFamily: "SuezOne-Regular",
+        color: "#fff",
+        textAlign: "center",
+    },
+    areYouSure1: {
+        position: "absolute",
+        left: 134,
+        top: 419,
+        alignContent: 'center',
+    },
+    yesText: {
+        fontSize: 20,
+        fontFamily: "SuezOne-Regular",
+        color: "#fff",
+        textAlign: "left",
+    },
+    yesPressable: {
+        position: "absolute",
+        left: 210,
+        top: 457,
+    },
+    noText: {
+        fontSize: 20,
+        fontFamily: "SuezOne-Regular",
+        color: "#fff",
+        textAlign: "left",
+    },
+    noPressable: {
+        position: "absolute",
+        left: 152,
+        top: 457,
     },
 
     pageTitle:{
@@ -142,4 +197,4 @@ const styles = StyleSheet.create({
    })
 
 
-export default UserProfile;
+export default Logout;

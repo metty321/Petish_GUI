@@ -7,6 +7,14 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import DatePicker from 'react-native-modern-datepicker';
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+=======
+import React, { useState } from "react";
+import { StyleSheet,useWindowDimensions,View,Text,TextInput,Platform, TouchableOpacity } from "react-native";
+import RadioGroup from 'react-native-radio-buttons-group';
+import SelectDropdown from 'react-native-select-dropdown';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import DateTimePicker from '@react-native-community/datetimepicker';
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 
 const radioButtonsData = [{
@@ -30,6 +38,7 @@ const Pet = ["Dog", "Cat", "Rabbit", "Hamster","Other"]
 
 
 
+<<<<<<< HEAD
 
 const AddPets = ( {navigation} ) =>{
     const {width,height} = useWindowDimensions();
@@ -106,6 +115,18 @@ const AddPets = ( {navigation} ) =>{
         }
     }
     
+=======
+const AddPets = ( {navigation} ) =>{
+    const [radioButtons, setRadioButtons] = useState(radioButtonsData)
+    const [petName, setpetName] = useState('');
+    const [petType, setPetType] = useState(Pet[0]);
+    const {width,height} = useWindowDimensions();
+    
+    
+    function onPressRadioButton(radioButtonsArray) {
+        setRadioButtons(radioButtonsArray);
+    }
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
     return(
 
@@ -157,6 +178,7 @@ const AddPets = ( {navigation} ) =>{
                 </View> 
 
                 <View style={styles.inputContainer}>
+<<<<<<< HEAD
                     <Text style={styles.input_Label2}>Date of Birth</Text>
                     <Pressable
                 style={styles.rectangleView5}
@@ -203,6 +225,15 @@ const AddPets = ( {navigation} ) =>{
                 onPress={()=> navigation.navigate('Pet_Profile')}
                 />
                 
+=======
+                    <Text style={styles.input_Label}>Date of Birth</Text>
+                    
+                </View>
+                
+                <View style={styles.rectangleView3} 
+                onPress={()=> navigation.navigate('Pet_Profile')}
+                />
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
                 <Text style={styles.cancelText}
                 onPress={()=> navigation.navigate('Pet_Profile')}>Cancel</Text>
             
@@ -250,6 +281,7 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         fontSize:18
     },
+<<<<<<< HEAD
     input_Label2:{
       fontFamily:'SuezOne-Regular',
         color: '#F0C7A4',
@@ -257,6 +289,8 @@ const styles = StyleSheet.create({
         marginTop:'10%',
         fontSize:18
     },
+=======
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
     inputContainer:{
         marginTop:15,
@@ -301,6 +335,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#f0c7a4",
         width: 112,
         height: 48,
+<<<<<<< HEAD
         justifyContent:'center',
         alignItems:'center'
       },
@@ -329,6 +364,10 @@ const styles = StyleSheet.create({
         position:"absolute",
         top:'90%'
       },
+=======
+      },
+
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       cancelText: {
         position: "absolute",
         top: "93%",
@@ -340,6 +379,7 @@ const styles = StyleSheet.create({
         width: 68,
       },
 
+<<<<<<< HEAD
 
       AddText: {
         position: "absolute",
@@ -366,6 +406,8 @@ const styles = StyleSheet.create({
         
       }
 
+=======
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
    })
 
 export default AddPets;
