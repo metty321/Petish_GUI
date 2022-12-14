@@ -9,43 +9,29 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-const radioButtonsData = [{
-    id: '1', // acts as primary key, should be unique and non-empty string
-    label: 'Male',
-    value: 'male',
-    size :12,
-    borderColor: '#F0C7A4',
-    color:'#F0C7A4'
-}, {
-    id: '2',
-    label: 'Female',
-    value: 'female',
-    size :12,
-    borderColor:'#F0C7A4' ,
-    color:'#F0C7A4'
-}]
 
 
-const Pet = ["Dog", "Cat", "Rabbit", "Hamster","Other"]
+const Repeat = ["none", "daily", "weekly", "monthly"]
 
 
 
 
-const AddPets = ( {navigation} ) =>{
+const AddToDoList = ( {navigation} ) =>{
     const {width,height} = useWindowDimensions();
     const [shouldShow, setShouldShow] = useState(false);
-    const [sex, setSex] = useState('')
-    const [radioButtons, setRadioButtons] = useState(radioButtonsData)
-    const [petName, setpetName] = useState('');
-    const [petType, setPetType] = useState(Pet[0]); 
+    const [info, setInfo] = useState('');
+    const [title, setTitle] = useState('');
+    const [repeat, setRepeat] = useState(Repeat[0]); 
     const [token, setToken] = useState('');
-    const [selectedDate, setSelectedDate] = useState('');
+    const [timeDate, setTimeDate]= useState('');
+    // const [selectedDate, setSelectedDate] = useState('');
 
 
     useEffect(()=>{
       async function getToken(){
         const value = await AsyncStorage.getItem("AccessToken");
         setToken(value)
+        console.log(value)
        
       }
       getToken();
@@ -62,25 +48,26 @@ const AddPets = ( {navigation} ) =>{
 
     const onAddPressed = () =>{
         const data = {
-           name : petName,
-          sex: sex,
-
-          type: petType,
-          birthdate:selectedDate
+            title: title,
+           date : timeDate,
+          notes: info,  
+          repeat: repeat 
         }    
+        
       
-        user.post('/input-pet',data)
+        user.post('/input-task',data)
         .then(res => {
           
           console.log('res: ',res)
-          setpetName("")
-          setSex("")
-          alert('Pet registered')
-          console.log(token)
-          navigation.replace("Pet_Profile")
+          setInfo("")
+          alert('Task registered')
+          navigation.navigate("Calendar")
+        }).catch(err => {
+            // Handle error 
+            console.log(err);
         })
 
-      
+    //   console.log(timeDate)
 
       // console.log(token)
         // axios.post('http://10.0.2.2:8888/petish/input-pet',data)
@@ -95,49 +82,40 @@ const AddPets = ( {navigation} ) =>{
         
       };
     
-    
-      const onPressRadioButton=(radioButtonsData)=> {
-        
-        if(radioButtonsData[0].selected){
-        setSex("Male")
-        }
-        else{
-        setSex("Female")
-        }
-    }
+
     
 
     return(
 
         <View style={styles.root}>
-            <Text style={styles.pageTitle}>Add Your Pets</Text>
+            <Text style={styles.pageTitle}>Add Your Task</Text>
             <View style={[styles.input_Container,{width : width * 0.8, height: height*0.6}]}>
-                <TextInput label='Username' 
-                    placeholder='Pet Name' 
+            <TextInput label='Task' 
+                    placeholder='Title' 
                     placeholderTextColor='rgba(240, 199, 164, 0.5)'
-                    value={petName} 
-                    onChangeText={setpetName} style={styles.nameInput}>
+                    value={title} 
+                    onChangeText={setTitle} style={styles.nameInput}>
                 </TextInput>
 
-                <View style={styles.inputContainer}>
-                    <Text style={styles.input_Label}>Sex</Text>
-                    <RadioGroup 
-                        radioButtons={radioButtons} 
-                        onPress={onPressRadioButton} 
-                        layout='row'
-                    />
-                </View>
+                
+                <TextInput label='Task' 
+                    placeholder='Notes' 
+                    placeholderTextColor='rgba(240, 199, 164, 0.5)'
+                    value={info} 
+                    onChangeText={setInfo} style={styles.nameInput}>
+                </TextInput>
+
 
                 <View style={styles.inputContainer}>
-                    <Text style={styles.input_Label}>Pet Type</Text>
+                    <Text style={styles.input_Label}>Repeat</Text>
                     <SelectDropdown
-                        data={Pet}
+                        data={Repeat}
                         
                         onSelect={(selectedItem, index) => {
                         console.log(selectedItem, index);
-                        setPetType(selectedItem)
+                        setRepeat(selectedItem)
                         }}
-                        defaultButtonText={'Dog'}
+                        defaultButtonText={'none'}
                         buttonTextAfterSelection={(selectedItem, index) => {
                         return selectedItem;
                         }}
@@ -157,54 +135,34 @@ const AddPets = ( {navigation} ) =>{
                 </View> 
 
                 <View style={styles.inputContainer}>
-                    <Text style={styles.input_Label2}>Date of Birth</Text>
+                    <Text style={styles.input_Label2}>Date</Text>
                     <Pressable
                 style={styles.rectangleView5}
                  onPress={() => setShouldShow(!shouldShow)}>
-                        <Text style={styles.OpenText}>Open Calendar</Text>
+                        <Text style={styles.OpenText}>Open</Text>
                      </Pressable>
                     {shouldShow ? (
-                    <DatePicker
-                        style={styles.dateContainer}
-                            mode="calendar"
-                            onSelectedChange={date => setSelectedDate(date)}
-                    />):null
+                     <DatePicker
+                     style={styles.dateContainer}
+                     onSelectedChange={date => setTimeDate(date +":00")}
+                   />):null
                     }
 
-                                                
-                        {/* <>
-                        <Button 
-                        color="#5e2d14"
-                        title="Open" 
-                        onPress={() => setOpen(true)} />
-                        <DatePicker
-                            modal
-                            mode="date"
-                            open={open}
-                            date={date}
-                            onConfirm={(date) => {
-                            setOpen(false)
-                            setDate(date)
-                            }}
-                            onCancel={() => {
-                            setOpen(false)
-                            }}
-                        />
-                        </> */}
+                                            
                 </View>
                 
                 <View style={styles.rectangleView4} 
-                onPress={()=> navigation.navigate('Pet_Profile')}
+                onPress={()=> navigation.navigate('Calendar')}
                 />
                 <Text style={styles.AddText}
                 onPress={onAddPressed}>Add</Text>
                 
                 <View style={styles.rectangleView3} 
-                onPress={()=> navigation.navigate('Pet_Profile')}
+                onPress={()=> navigation.navigate('Calendar')}
                 />
                 
                 <Text style={styles.cancelText}
-                onPress={()=> navigation.navigate('Pet_Profile')}>Cancel</Text>
+                onPress={()=> navigation.navigate('Calendar')}>Cancel</Text>
             
             </View>
         </View>
@@ -241,7 +199,8 @@ const styles = StyleSheet.create({
         fontSize:18,
         borderBottomColor:'rgba(0, 0, 0, 1)',
         borderBottomWidth:1,
-        paddingVertical:1
+        paddingVertical:1,
+        marginBottom:15
     },
 
     input_Label:{
@@ -352,7 +311,7 @@ const styles = StyleSheet.create({
         width: 68,
       },
       OpenText:{
-        fontSize: 15,
+        fontSize: 20,
         fontFamily:'SuezOne-Regular',
         color: "#5e2d14",
         textAlign: "center",
@@ -362,10 +321,10 @@ const styles = StyleSheet.create({
         position:'absolute',
         alignSelf:'center',
         borderRadius: 10,
-        bottom:'0%'
+        bottom:'20%'
         
       }
 
    })
 
-export default AddPets;
+export default AddToDoList;

@@ -58,12 +58,12 @@ export default CustomBottomNavigator;
 const styles = StyleSheet.create({
     container :{
         flexDirection:'row',
-        paddingHorizontal:10,
+        paddingHorizontal:25,
         paddingVertical:5,
         justifyContent:'space-between',
         backgroundColor:'rgba(145,111,94,255)',
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20
+        // borderTopLeftRadius: 20,
+        // borderTopRightRadius: 20
       
     }
 });

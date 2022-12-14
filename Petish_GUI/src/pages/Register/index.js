@@ -1,5 +1,6 @@
  import React,{useEffect, useState} from 'react';
  import CustomInput from '../../components/CustomInput';
+ import LinearGradient from "react-native-linear-gradient";
  import axios from 'axios'
  
  import {
@@ -9,12 +10,11 @@
     Pressable,
     TouchableOpacity,
     Alert,
-    RefreshControlBase
+    RefreshControlBase,
+    Image
   } from 'react-native';
 // import { err } from 'react-native-svg/lib/typescript/xml';
 
-
- 
 
   const Register = ({ navigation }) => {
     
@@ -66,7 +66,7 @@
       //   alert('registered!')
       // })
 
-       axios.post('http://10.0.2.2:8888/petish/register',data)
+       axios.post('https://petish-back.onrender.com/petish/register',data)
       .then(res => {
         alert('registered!')
         console.log('res: ',res);
@@ -88,42 +88,62 @@
       
       
       <View style={styles.container}>
+
+        <LinearGradient
+          style={styles.rectangleLinearGradient}
+          locations={[0.45, 1]}
+          colors={["rgba(94, 45, 20, 0.69)", "rgba(94, 45, 20, 0)"]}
+          useAngle={true}
+          angle={179.99}
+        />
+
         <View>
-      <Text style={styles.text}>Register</Text>
-      </View>
-      <View style={styles.registerForm}>
+          <Text style={styles.text}>Register</Text>
+        </View>
 
-      <CustomInput label='Name' 
-     placeholder='Your Name' 
-     value={name} 
-     setValue={setName}/>
+        <Pressable
+          style={styles.vectorPressable}
+          onPress={() => navigation.navigate("Login")}>
+          <Image
+            style={styles.icon}
+            resizeMode="contain"
+            source={require("../../../assets/img/vector1.png")}
+          />
+        </Pressable>
 
-     <CustomInput label='Username' 
-     placeholder='Your Username' 
-     value={username} 
-     setValue={setUsername}/>
+        <View style={styles.registerForm}>
 
-     <CustomInput label='Email' 
-     placeholder='Your Email' 
-     value={email} 
-     setValue={setEmail}
-     />
+          <CustomInput label='Name' 
+            placeholder='Your Name' 
+            value={name} 
+            setValue={setName}
+            />
 
-     <CustomInput 
-     label='Password' 
-     placeholder='Your Password' 
-     value={password} 
-     setValue={setPassword}
-     secureTextEntry
-     />
-     
-     <Pressable  onPress={onRegisterPressed} style={styles.Register_btn}>
-     <TouchableOpacity>
-      <Text style={styles.btn_label}>Register</Text>
-      </TouchableOpacity>
-     </Pressable>
-     
-     </View>
+          <CustomInput label='Username' 
+            placeholder='Your Username' 
+            value={username} 
+            setValue={setUsername}/>
+
+          <CustomInput label='Email' 
+            placeholder='Your Email' 
+            value={email} 
+            setValue={setEmail}
+            />
+
+          <CustomInput 
+            label='Password' 
+            placeholder='Your Password' 
+            value={password} 
+            setValue={setPassword}
+            secureTextEntry
+            />
+          
+          <Pressable  onPress={onRegisterPressed} style={styles.Register_btn}>
+            <TouchableOpacity>
+              <Text style={styles.btn_label}>Register</Text>
+            </TouchableOpacity>
+          </Pressable>
+        </View>
       </View>
     );
 };
@@ -134,31 +154,69 @@ const styles = StyleSheet.create({
     paddingVertical:0
     
   },
+
+  rectangleLinearGradient: {
+    position: "absolute",
+    top: 150,
+    left: 0,
+    borderRadius: 30,
+    width: 412,
+    height: 714,
+    backgroundColor: "transparent",
+  },
+
   text:{
-    textAlign:'center',
+    textAlign: 'right',
     fontFamily:'SuezOne-Regular',
     fontSize:32,
     color:'#5E2D14',
     paddingVertical:'8%',
+    top: "40%",
+    right: "8%"
     // position:'absolute'
    
+  },
+
+  vectorPressable: {
+    position: "absolute",
+    left: "6.11%",
+    top: "13.03%",
+    right: "90.08%",
+    bottom: "84.12%",
+    width: "3.82%",
+    height: "2.85%",
+  },
+
+  icon: {
+    height: "100%",
+    width: "100%",
+    maxWidth: "100%",
+    overflow: "hidden",
+    maxHeight: "100%",
+    top: 20,
+    left: 5
   },
 
   registerForm:{
     paddingHorizontal:40,
     marginBottom:0,
     // backgroundColor:'rgba(94, 45, 20, 0.69)',
-    borderRadius:40
+    borderRadius:40,
+    top: "18%",
+    width: 380,
+    alignSelf: "center"
   },
 
   Register_btn:{
-    alignSelf:'center',
+    alignSelf:'center', 
     width:'50%',
-    borderRadius:50,
+    borderRadius:20,
     backgroundColor:'rgba(240, 199, 164, 1)',
     marginTop:20,
-    paddingVertical:10
+    paddingVertical:10,
+    width: 160
   },
+
   btn_label:{
     alignSelf:'center',
     fontFamily:'SuezOne-Regular',

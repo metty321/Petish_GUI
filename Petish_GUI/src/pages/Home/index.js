@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import CustomInput from '../../components/CustomInput';
 import Logo from '../../../assets/img/Logo.png'
 import {
@@ -8,13 +8,35 @@ import {
    Image,
    useWindowDimensions,
    Pressable,
-   TouchableOpacity
+   TouchableOpacity,
+   BackHandler,
+   Alert
  } from 'react-native';
 
  
 
  const Home =({ navigation }) => {
     //const [user, setUser] = useState([]);
+    useEffect(() => {
+        const backAction = () => {
+        Alert.alert("Hold on!", "Are you sure you want to go back?", [
+            {
+            text: "Cancel",
+            onPress: () => null,
+            style: "cancel"
+            },
+            { text: "YES", onPress: () => BackHandler.exitApp() }
+        ]);
+        return true;
+        };
+
+        const backHandler = BackHandler.addEventListener(
+        "hardwareBackPress",
+        backAction
+        );
+        return () => backHandler.remove();
+    }, []);
+
     const {width,height} = useWindowDimensions();
     return(
     <View style={styles.root}>  
@@ -24,7 +46,7 @@ import {
         <Pressable  
         style={[styles.continue_btn,{width : width * 0.6}]}
         onPress={()=>navigation.navigate('Login')}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
      <Text style={styles.btn_label}>Continue</Text>
      </TouchableOpacity>
     </Pressable>
@@ -43,11 +65,12 @@ import {
     },
     Logo:{
         zIndex:999,
-        width:'70%',
+        width:'100%',
         height:100,
         maxHeight:1000,
         maxWidth:2000,
-        marginBottom:0
+        marginBottom:0,
+        top: 50
     },
     title:{
         fontFamily:'SuezOne-Regular',
@@ -63,7 +86,8 @@ import {
     continue_btn:{
         alignSelf:'center',
         maxWidth:'100%',
-        borderRadius:50,
+        height: 60,
+        borderRadius:20,
         backgroundColor:'#7B533E',
         marginTop:50,
         paddingVertical:10
@@ -72,7 +96,8 @@ import {
         alignSelf:'center',
         fontFamily:'SuezOne-Regular',
         color:'#FFFF',
-        fontSize:20
+        fontSize:24,
+        top: 5
       }
   });
  export default Home;
