@@ -23,6 +23,7 @@ import {
      value ={value}
      onChangeText={setValue}
      secureTextEntry={hidePassword}
+     autoCapitalize='none'
      />
      </View>
      

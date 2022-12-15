@@ -365,7 +365,9 @@ const styles = StyleSheet.create({
         position:'absolute',
         alignSelf:'center',
         borderRadius: 10,
-        bottom:'0%'
+        bottom:'0%',
+        width:'100%',
+        height:'100%'
         
       }
 

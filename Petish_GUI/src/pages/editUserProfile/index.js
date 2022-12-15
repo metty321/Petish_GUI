@@ -2,11 +2,14 @@ import * as React from "react";
 import { StyleSheet, View, Image, Pressable, Text, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
+
 const EditUserProfile = () => {
     const navigation = useNavigation();
 
     return (
+        <ScrollView>
         <View style={styles.editProfileView}>
+            
             <View style={styles.rectangleView} />
         
             <Text style={styles.profileText}>Profile</Text>
@@ -58,7 +61,9 @@ const EditUserProfile = () => {
                 resizeMode="cover"
                 source={require("../../../assets/img/image-3.png")}
             />
+            
         </View>
+        </ScrollView>
     );
 };
 

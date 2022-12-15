@@ -1,28 +1,64 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useState} from "react";
 import { StyleSheet,useWindowDimensions,View,Text,
 Image, Pressable } from "react-native";
 import account from '../../../assets/img/account.png'
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import axios from "axios";
 
 
 
 
 const UserProfile = ({navigation}) =>{
+const [name, setName] = useState('')
+const [email, setEmail] = useState('')
+
+
+
+    
+const user= axios.create({
+    baseURL:'https://petish-back.onrender.com/petish',
+    // headers:{
+    //   'Authorization':"Bearer "+token
+    // }
+  })
+
+  useEffect(()=>{
+    async function getItem(){
+      const value = await AsyncStorage.getItem("AccessToken");
+      // console.log(pet_id)
+      user.get("/me",
+      {headers: {'Authorization':"Bearer "+value}})
+          .then(res => {
+            console.log("res Profile: ",res.data.data)
+            setName(res.data.data.name)
+            setEmail(res.data.data.email)
+          })
+     
+    }
+    getItem();
+  }, []) 
+
+  const LogOutPressed = async()=>{
+    await AsyncStorage.removeItem('AccessToken')
+    .then(res=>{
+        console.log(res)
+        navigation.navigate("Login")
+    })
+  }
     
     return(
         <View style={styles.root}>
             <Text style={styles.pageTitle}>Profile</Text>
             <View style={styles.userInfo_Container}>
             
-             <Text style={styles.usernameText}>Jametus faaktus</Text>
+             <Text style={styles.usernameText}>{name}</Text>
             <Pressable
                 style={styles.logOutPressable}
-                onPress={() => navigation.navigate("Logout")}
+                onPress={LogOutPressed}
             >
                 <Text style={styles.logOutText}>Log Out</Text>
             </Pressable>
-            <Text style={styles.emailText}>jametus69@gmail.com</Text>
+            <Text style={styles.emailText}>{email}</Text>
             <Image
                 style={styles.ellipseIcon1}
                 resizeMode="cover"

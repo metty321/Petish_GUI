@@ -9,7 +9,7 @@ import Splash from "../pages/Splash";
 import Calendar from "../pages/Calendar";
 import Food from "../pages/Food";
 import Pet_Profile from "../pages/Pet_Profile";
-import UserProfile from "../pages/UserProfile";
+import User_Profile from "../pages/UserProfile";
 import Vets from "../pages/Vets";
 import CustomBottomNavigator from "../components/CustomBottomNavigator";
 import AddPets from "../pages/AddPets";
@@ -56,13 +56,13 @@ const AddPetProfile = ()=>{
   )
 }
 
-const userProfile = ()=>{
+const UserProfile = ()=>{
   return (
     <PetProfileStack.Navigator initialRouteName="UserProfile">
-      <PetProfileStack.Screen name="UserProfile" component={UserProfile} options={{
+      <PetProfileStack.Screen name="UserProfile" component={User_Profile} options={{
           headerShown:false
         }}/>
-    <PetProfileStack.Screen name="editUserProfile" component={editUserProfile} options={{
+    <PetProfileStack.Screen name="editUserProfile" component={EditUserProfile} options={{
           headerShown:false
         }}/>
     
@@ -103,14 +103,15 @@ const Router = () => {
         options={{
           headerShown:false
         }}/>
+         <Stack.Screen name="EditUserProfile" component={UserProfile} 
+        options={{
+          headerShown:false
+        }}/>
         {/* <Stack.Screen name="Pet_Profile" component={Pet_Profile} 
         options={{
           headerShown:false
         }}/>
-        <Stack.Screen name="EditUserProfile" component={EditUserProfile} 
-        options={{
-          headerShown:false
-        }}/>
+       
         <Stack.Screen name="AddReminder" component={AddReminder} 
         options={{
           headerShown:false
