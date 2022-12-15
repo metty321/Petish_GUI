@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 import React,{useEffect} from "react";
 import { StyleSheet,useWindowDimensions,View,Text,
 Image, Pressable } from "react-native";
 import account from '../../../assets/img/account.png'
 import AsyncStorage from "@react-native-async-storage/async-storage";
+=======
+import React from "react";
+import { StyleSheet,useWindowDimensions,View,Text,
+Image, Pressable } from "react-native";
+import account from '../../../assets/img/account.png'
 
-
-
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 
 const UserProfile = ({navigation}) =>{
@@ -15,6 +20,16 @@ const UserProfile = ({navigation}) =>{
             <Text style={styles.pageTitle}>Profile</Text>
             <View style={styles.userInfo_Container}>
             
+<<<<<<< HEAD
+             <Text style={styles.usernameText}>Stipeng Gepeng</Text>
+            <Pressable
+                style={styles.logOutPressable}
+                onPress={() => navigation.navigate("Login")}
+            >
+                <Text style={styles.logOutText}>Log Out</Text>
+            </Pressable>
+            <Text style={styles.emailText}>stipengpeng@gmail.com</Text>
+=======
              <Text style={styles.usernameText}>Jametus faaktus</Text>
             <Pressable
                 style={styles.logOutPressable}
@@ -23,6 +38,7 @@ const UserProfile = ({navigation}) =>{
                 <Text style={styles.logOutText}>Log Out</Text>
             </Pressable>
             <Text style={styles.emailText}>jametus69@gmail.com</Text>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
             <Image
                 style={styles.ellipseIcon1}
                 resizeMode="cover"

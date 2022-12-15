@@ -13,6 +13,7 @@ const PetProfileWithPet = () =>{
         <Text style={styles.pageTitle}>My Pets</Text>
         <View style={styles.rectangleView} />
         
+<<<<<<< HEAD
         
     
         <View style={[styles.AddPetContainer,{width : width * 0.7}]}>
@@ -24,6 +25,8 @@ const PetProfileWithPet = () =>{
             
             <Text style={styles.addPet_Text}>Add your pet now!</Text>
         </View>
+=======
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         <LinearGradient
             style={styles.rectangleLinearGradient1}
             locations={[0, 1]}
@@ -33,17 +36,40 @@ const PetProfileWithPet = () =>{
         >
             <Pressable
             style={styles.pressable1}
+<<<<<<< HEAD
             onPress={() => navigation.navigate("Doggo1")}
             />
         </LinearGradient>
         <Text style={styles.doggoText}>Doggo</Text>
+=======
+            onPress={() => navigation.navigate("PetInfo")}
+            />
+        </LinearGradient>
+        <Text style={styles.doggoText}
+        onPress={() => navigation.navigate("PetInfo")}>Doggo</Text>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         <Image
             style={styles.dog1Icon}
             resizeMode="cover"
             source={require("../../../assets/img/dog-110.png")}
+<<<<<<< HEAD
         />
         
      </View>
+=======
+            onPress={() => navigation.navigate("PetInfo")}
+        />
+    
+        <View style={[styles.AddPetContainer,{width : width * 0.7}]}>
+            <View style={styles.AddPet}>
+                <Pressable  onPress={()=> navigation.navigate('AddPets')}>
+                    <Text style={styles.addNow}>+</Text>
+                </Pressable>
+            </View>
+            <Text style={styles.addPet_Text}>Add your pet now!</Text>
+            </View>
+        </View>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     );
 };
 

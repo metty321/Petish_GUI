@@ -42,6 +42,7 @@ import {
     password
   }    
 
+<<<<<<< HEAD
   axios.post('https://petish-back.onrender.com/petish/login',data)
   .then(res => {
     alert('Login successful')
@@ -51,6 +52,17 @@ import {
     setPassword("");
     navigation.navigate("MainApp")
   }).catch(err=>console.log(err.message))
+=======
+  axios.post('http://10.0.2.2:8888/petish/login',data)
+  .then(res => {
+    alert('Login successful')
+    console.log('res: ',res.data.user.token);
+    AsyncStorage.setItem("AccessToken",res.data.user.token)
+    setEmail("");
+    setPassword("");
+    navigation.replace("MainApp")
+  }).catch(err=>console.log(err))
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 
   // const storeData = async (data) => {
@@ -99,12 +111,16 @@ import {
       
         <CustomInput label='Email' placeholder='Your Email' setValue={setEmail}/>
         {/* <CustomInput label='Phone Number' placeholder='Your Phone Number' setValue={setPhoneNumber}/> */}
+<<<<<<< HEAD
         <CustomInput 
         label='Password' 
         placeholder='Your Password' 
         setValue={setPassword} 
         hidePasssword='true'
         />
+=======
+        <CustomInput label='Password' placeholder='Your Password' setValue={setPassword}/>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         
         <Pressable  onPress={onLoginPressed} style={styles.Register_btn}>
           <TouchableOpacity>

@@ -14,16 +14,25 @@ import Vets from "../pages/Vets";
 import CustomBottomNavigator from "../components/CustomBottomNavigator";
 import AddPets from "../pages/AddPets";
 import PetProfileWithPet from "../pages/PetProfileWithPet";
+<<<<<<< HEAD
 import EditUserProfile from "../pages/editUserProfile";
 import AddReminder from "../pages/AddReminder";
 import PetInfo from "../pages/PetInfo"
 import AddToDoList from "../pages/addToDoList";
-import EdiTaskList from "../pages/EditReminder";
+=======
+import EditUserProfile from "../pages/EditUserProfile";
+import AddReminder from "../pages/AddReminder";
+import PetInfo from "../pages/PetInfo"
+import FoodDetail from "../pages/FoodDetail"
+import EditReminder from "../pages/EditReminder"
+import Logout from "../pages/Logout"
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 const Stack = createNativeStackNavigator();
 const PetProfileStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const editUserProfileStack = createBottomTabNavigator();
+<<<<<<< HEAD
 const TaskListStack = createNativeStackNavigator();
 
 const AddTaskPage =() =>{
@@ -34,11 +43,10 @@ const AddTaskPage =() =>{
   <TaskListStack.Screen  name="AddToDoList" component={AddToDoList} options={{
           headerShown:false
         }}/>
-        <TaskListStack.Screen  name="EditTaskList" component={EdiTaskList} options={{
-          headerShown:false
-        }}/>
   </TaskListStack.Navigator>)
 }
+=======
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 const AddPetProfile = ()=>{
   return (
@@ -49,14 +57,22 @@ const AddPetProfile = ()=>{
     <PetProfileStack.Screen name="AddPets" component={AddPets} options={{
           headerShown:false
         }}/>
+<<<<<<< HEAD
     <PetProfileStack.Screen name="PetInfo" component={PetInfo} options={{
           headerShown:false
         }}/>
+=======
+    
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
     </PetProfileStack.Navigator>
   )
 }
 
+<<<<<<< HEAD
 const userProfile = ()=>{
+=======
+/*const userProfile = ()=>{
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
   return (
     <PetProfileStack.Navigator initialRouteName="UserProfile">
       <PetProfileStack.Screen name="UserProfile" component={UserProfile} options={{
@@ -68,7 +84,11 @@ const userProfile = ()=>{
     
     </PetProfileStack.Navigator>
   )
+<<<<<<< HEAD
 }
+=======
+}*/
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 
 const MainApp = () => {
@@ -76,7 +96,11 @@ const MainApp = () => {
   return(
     <Tab.Navigator tabBar={props => <CustomBottomNavigator {...props} initialRouteName={"AddPetScreen"}/>}>
       <Tab.Screen name="AddPetScreen" component={AddPetProfile} options={{headerShown:false}}/>
+<<<<<<< HEAD
       <Tab.Screen name="AddTaskPage" component={AddTaskPage} options={{headerShown:false}}/>
+=======
+      <Tab.Screen name="Calendar" component={Calendar} options={{headerShown:false}}/>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       <Tab.Screen name="Food" component={Food} options={{headerShown:false}}/>
       <Tab.Screen name="Vets" component={Vets} options={{headerShown:false}}/>
       <Tab.Screen name="User Profile" component={UserProfile} options={{headerShown:false}}/>
@@ -86,7 +110,11 @@ const MainApp = () => {
 }
     
 const Router = () => {
+<<<<<<< HEAD
   return  (<Stack.Navigator initialRouteName={"Home"}>
+=======
+  return  (<Stack.Navigator initialRouteName={"MainApp"}>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       <Stack.Screen name="Home" component={Home} options={{
           headerShown:false
         }}/>
@@ -103,7 +131,11 @@ const Router = () => {
         options={{
           headerShown:false
         }}/>
+<<<<<<< HEAD
         {/* <Stack.Screen name="Pet_Profile" component={Pet_Profile} 
+=======
+        <Stack.Screen name="PetProfileWithPet" component={PetProfileWithPet} 
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         options={{
           headerShown:false
         }}/>
@@ -114,10 +146,30 @@ const Router = () => {
         <Stack.Screen name="AddReminder" component={AddReminder} 
         options={{
           headerShown:false
+<<<<<<< HEAD
         }}/><Stack.Screen name="PetInfo" component={PetInfo} 
         options={{
           headerShown:false
         }}/> */}
+=======
+        }}/>
+        <Stack.Screen name="PetInfo" component={PetInfo} 
+        options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="FoodDetail" component={FoodDetail} options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="EditReminder" component={EditReminder} options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="Logout" component={Logout} options={{
+          headerShown:false
+        }}/>
+        <Stack.Screen name="UserProfile" component={UserProfile} options={{
+          headerShown:false
+        }}/>
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
         
     </Stack.Navigator>
     );

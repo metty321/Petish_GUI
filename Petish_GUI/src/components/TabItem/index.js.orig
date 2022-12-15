@@ -9,7 +9,7 @@ import {
  } from 'react-native';
 
  import PetProfile from '../../../assets/icons/Paw.svg'
- import PetProfileActive from '../../../assets/icons/Paw_ACTIVE.svg'
+ import PetProfileActive from '../../../assets/icons/paw_ACTIVE.svg'
  import UserProfile from '../../../assets/icons/userProfile.svg'
  import UserProfileActive from '../../../assets/icons/userProfile_ACTIVE.svg'
  import Calendar from '../../../assets/icons/calendar.svg'
@@ -27,7 +27,11 @@ import {
     if (label ==="AddPetScreen"){
       return isFocused?<PetProfileActive/>:<PetProfile/>;
     }
+<<<<<<< HEAD
     if (label ==="AddTaskPage"){
+=======
+    if (label ==="Calendar"){
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
       return isFocused?<CalendarActive/>:<Calendar/>;;
     }
 

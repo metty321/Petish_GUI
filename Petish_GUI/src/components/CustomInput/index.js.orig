@@ -8,7 +8,11 @@ import {
  } from 'react-native';
 
 
+<<<<<<< HEAD
  const CustomInput = ({label,value, setValue, placeholder,hidePassword}) => {
+=======
+ const CustomInput = ({label,value, setValue, placeholder}) => {
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
    var width = Dimensions.get('window').width;
   // const [value,setValue] =  useState('');
    return (
@@ -22,7 +26,10 @@ import {
      style={styles.input}
      value ={value}
      onChangeText={setValue}
+<<<<<<< HEAD
      secureTextEntry={hidePassword}
+=======
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
      />
      </View>
      

@@ -6,11 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 
 import {
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
 } from 'react-native';
 

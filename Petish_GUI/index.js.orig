@@ -5,6 +5,7 @@
 import {AppRegistry} from 'react-native';
 import App from './src/App';
 import {name as appName} from './app.json';
+<<<<<<< HEAD
 import PushNotification from "react-native-push-notification";
 
 PushNotification.configure({
@@ -20,5 +21,7 @@ PushNotification.configure({
       requestPermissions: Platform.OS === 'ios'
     });
 
+=======
+>>>>>>> b182b48218f3ce21d949a03876a0f7a0de4bad5a
 
 AppRegistry.registerComponent(appName, () => App);
