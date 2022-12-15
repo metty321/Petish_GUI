@@ -97,11 +97,14 @@ const PetInfo = ({route,   navigation: { goBack },navigation}) => {
           resizeMode='contain'
           source={require("../../../assets/img/hamster.png")}/>)
         }
+        else if (petType === "Other" || petType === "other"){
+          return (<Image
+          style={styles.dog1Icon}
+          resizeMode='contain'
+          source={require("../../../assets/img/dog-110.png")}/>)
+        }   
     else{
-      return (<Image
-      style={styles.dog1Icon}
-      resizeMode='contain'
-      source={require("../../../assets/img/dog-110.png")}/>)}
+      return (null)}
   
   };  
 
@@ -281,7 +284,8 @@ const styles = StyleSheet.create({
     marginBlockEnd: 10,
   },
   yearsOldText: {
-    margin: 0,
+    alignSelf:'center'
+
   },
   yearsOldText1: {
     position: "absolute",

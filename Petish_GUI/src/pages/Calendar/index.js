@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import LinearGradient from "react-native-linear-gradient";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 //nanti bakal pake useEffect() buat render screen sesuai dengan input user
 //referensi     : https://stackoverflow.com/questions/45478621/react-native-styling-with-conditional
 
@@ -15,12 +16,16 @@ import axios from "axios";
 //     alert('Button Pressed!');
     
 // }
-const ListItem = ({ title, notes,  date})=>{
-
+const ListItem = ({ title, notes,  date,id})=>{
+  const navigation = useNavigation();
   
     return(
         <View style={styles.item}>
-                <Pressable style={styles.PetInfo} >
+                <Pressable style={styles.PetInfo} onPress={() => navigation.replace("EditTaskList",
+                {
+                  task_id:id
+                }
+                )} >
                 <LinearGradient
                         style={styles.rectangleLinearGradient1}
                         locations={[0, 1]}
@@ -144,7 +149,7 @@ const Calendar = ({ navigation }) =>{
       }
       style={styles.scrollContainer} >
       {tasks.map(task => {
-        return <ListItem title={task.title} notes={task.notes} date={task.date}/>
+        return <ListItem title={task.title} notes={task.notes} date={task.date} id={task._id}/>
       })} 
         </ScrollView> 
       </View>
