@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Calligraffitti-Regular.ttf",
+      "sha1": "578fc847ec28c223da45884b9799026788b2db83"
+    },
+    {
+      "path": "assets/fonts/SuezOne-Regular.ttf",
+      "sha1": "8578ca6ddd359b5bd8963e897004fe306356dc13"
+    }
+  ]
+}
